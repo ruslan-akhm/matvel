@@ -83,6 +83,7 @@ body {
   font-weight: bold;
   padding-right: 34px;
 }
+
 .list-wrapper {
   display: flex;
   flex-direction: column;
@@ -97,4 +98,15 @@ body {
 .remove-button:hover {
   background-color: #cc3931;
   color: white;
+}
+.sort-button {
+  width: 4px;
+  height: 4px;
+  padding: 0;
+  line-height: 1px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: white;
+  outline: none;
 }

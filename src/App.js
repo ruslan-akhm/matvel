@@ -1,5 +1,4 @@
 import { useReducer } from "react";
-
 import axios from "axios";
 import { reducer, ACTIONS } from "./reducers/employees";
 import Spinner from "./components/loading/loading";
@@ -63,9 +62,45 @@ function App() {
         {list && list.length > 0 && (
           <div className="list-wrapper">
             <div className="list-item list-title">
-              <span>Name</span>
-              <span>Age</span>
-              <span>Salary</span>
+              <span>
+                Name
+                <button
+                  className="sort-button"
+                  onClick={() => {
+                    dispatch({
+                      type: ACTIONS.SORT_BY_NAME,
+                    });
+                  }}
+                >
+                  &#8681;
+                </button>
+              </span>
+              <span>
+                Age
+                <button
+                  className="sort-button"
+                  onClick={() => {
+                    dispatch({
+                      type: ACTIONS.SORT_BY_AGE,
+                    });
+                  }}
+                >
+                  &#8681;
+                </button>
+              </span>
+              <span>
+                Salary
+                <button
+                  className="sort-button"
+                  onClick={() => {
+                    dispatch({
+                      type: ACTIONS.SORT_BY_SALARY,
+                    });
+                  }}
+                >
+                  &#8681;
+                </button>
+              </span>
               <span>Action</span>
             </div>
             <ul className="list">{list}</ul>
