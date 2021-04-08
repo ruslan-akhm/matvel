@@ -1,6 +1,8 @@
 import { useReducer } from "react";
-import { reducer, ACTIONS } from "./reducers/employees";
+
 import axios from "axios";
+import { reducer, ACTIONS } from "./reducers/employees";
+import Spinner from "./components/loading/loading";
 import "./App.css";
 
 function App() {
@@ -36,11 +38,11 @@ function App() {
     data &&
     data.map(item => {
       return (
-        <li key={item.id}>
-          <div>
-            {item.employee_name}, {item.employee_age}, {item.employee_salary}
-          </div>
+        <li key={item.id} className="list-item">
+          <span>{item.employee_name}</span> <span>{item.employee_age}</span>{" "}
+          <span>{item.employee_salary}</span>
           <button
+            className="remove-button"
             onClick={() => {
               dispatch({
                 type: ACTIONS.REMOVE_EMPLOYEE,
@@ -55,14 +57,26 @@ function App() {
     });
 
   return (
-    <div>
+    <div id="mainpage">
       <h1>Employees</h1>
-      <div>
-        {list && <ul>{list}</ul>}
-        {loading && <h2>LOADING</h2>}
-        {error && <h2>ERROR</h2>}
+      <div className="container">
+        {list && list.length > 0 && (
+          <div className="list-wrapper">
+            <div className="list-item list-title">
+              <span>Name</span>
+              <span>Age</span>
+              <span>Salary</span>
+              <span>Action</span>
+            </div>
+            <ul className="list">{list}</ul>
+          </div>
+        )}
+        {loading && <Spinner />}
+        {error && <h3>Something went wrong...</h3>}
       </div>
-      <button onClick={getData}>GET!</button>
+      <button onClick={getData} className="get-button">
+        GET!
+      </button>
     </div>
   );
 }

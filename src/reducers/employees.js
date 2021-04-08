@@ -8,7 +8,7 @@ export const ACTIONS = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.LOAD_DATA:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
 
     case ACTIONS.DATA_SUCCESS:
       return {
