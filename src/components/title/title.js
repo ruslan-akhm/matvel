@@ -3,6 +3,8 @@ import { reducer, ACTIONS } from "../../reducers/employees";
 
 function Title(props) {
   const dispatch = props.dispatch;
+
+  //if true - sort in ascending order, otherwise - descending
   const [nameAsc, setNameAsc] = useState(true);
   const [ageAsc, setAgeAsc] = useState(true);
   const [salaryAsc, setSalaryAsc] = useState(true);

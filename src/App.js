@@ -6,6 +6,7 @@ import Spinner from "./components/loading/loading";
 import "./App.css";
 
 function App() {
+  //main app state is managed via reducer
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
     error: false,
