@@ -37,10 +37,10 @@ export const reducer = (state, action) => {
         ...state,
         data: state.data.sort((a, b) => {
           if (a.employee_name < b.employee_name) {
-            return -1;
+            return action.payload.sort ? -1 : 1;
           }
           if (a.employee_name > b.employee_name) {
-            return 1;
+            return action.payload.sort ? 1 : -1;
           }
           return 0;
         }),
@@ -50,7 +50,9 @@ export const reducer = (state, action) => {
       return {
         ...state,
         data: state.data.sort((a, b) => {
-          return a.employee_age - b.employee_age;
+          return action.payload.sort
+            ? a.employee_age - b.employee_age
+            : b.employee_age - a.employee_age;
         }),
       };
 
@@ -58,7 +60,9 @@ export const reducer = (state, action) => {
       return {
         ...state,
         data: state.data.sort((a, b) => {
-          return a.employee_salary - b.employee_salary;
+          return action.payload.sort
+            ? a.employee_salary - b.employee_salary
+            : b.employee_salary - a.employee_salary;
         }),
       };
 
