@@ -50,13 +50,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         data: state.data.sort((a, b) => {
-          if (a.employee_age < b.employee_age) {
-            return -1;
-          }
-          if (a.employee_age > b.employee_age) {
-            return 1;
-          }
-          return 0;
+          return a.employee_age - b.employee_age;
         }),
       };
 
@@ -64,13 +58,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         data: state.data.sort((a, b) => {
-          if (a.employee_salary < b.employee_salary) {
-            return -1;
-          }
-          if (a.employee_salary > b.employee_salary) {
-            return 1;
-          }
-          return 0;
+          return a.employee_salary - b.employee_salary;
         }),
       };
 
